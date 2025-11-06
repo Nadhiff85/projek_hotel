@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Check-In Results</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Hotel Service</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+            <li><a href="{{ url_for('booking') }}">Book Now</a></li>
+            <li><a href="{{ url_for('checkin') }}">Check-In Results</a></li>
+        </ul>
+    </nav>
+    
+    <main class="check-in-results">
+        <h2>Check-In Results</h2>
+        {% if reservasi and reservasi|length > 0 %}
+            <table>
+                <tr>
+                    <th>Nama</th>
+                    <th>Hotel</th>
+                    <th>Kamar ID</th>
+                    <th>Check-In</th>
+                    <th>Check-Out</th>
+                    <th>Status</th>
+                </tr>
+                {% for r in reservasi %}
+                <tr>
+                    <td>{{ r.nama }}</td>
+                    <td>{{ r.hotel }}</td>
+                    <td>{{ r.kamar_id }}</td>
+                    <td>{{ r.check_in }}</td>
+                    <td>{{ r.check_out }}</td>
+                    <td>{{ r.status }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Tidak ada reservasi yang ditemukan.</p>
+        {% endif %}
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Hotel Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
