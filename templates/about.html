@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>About Us</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Hotel Service</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+            <li><a href="{{ url_for('booking') }}">Book Now</a></li>
+            <li><a href="{{ url_for('checkin') }}">Check-In Results</a></li>
+        </ul>
+    </nav>
+    
+    <section class="about">
+        <h1>Tentang Kami</h1>
+        <p>Selamat datang di Hotel Service! Kami menyediakan pengalaman menginap yang tak terlupakan dengan berbagai fasilitas terbaik.</p>
+        <h2>Visi Kami</h2>
+        <p>Menjadi pilihan utama bagi para tamu yang mencari kenyamanan dan pelayanan yang ramah.</p>
+        <h2>Misi Kami</h2>
+        <p>Kami berkomitmen untuk memberikan layanan terbaik dan menjamin kepuasan pelanggan kami.</p>
+        <h2>Tim Kami</h2>
+        <p>Kami memiliki tim profesional yang siap membantu Anda 24/7, memastikan pengalaman menginap Anda sempurna.</p>
+        <h2>Hubungi Kami</h2>
+        <p>Jika Anda memiliki pertanyaan atau membutuhkan bantuan, silakan hubungi kami di <strong>info@hotelservice.com</strong>.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Hotel Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
