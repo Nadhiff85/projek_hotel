@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Booking</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Hotel Service</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+            <li><a href="{{ url_for('booking') }}">Book Now</a></li>
+            <li><a href="{{ url_for('checkin') }}">Check-In Results</a></li>
+        </ul>
+    </nav>
+    
+    <main class="booking">
+        <h2>Booking</h2>
+        <form method="POST" action="{{ url_for('booking') }}">
+            <label>Nama:</label>
+            <input type="text" name="nama" required>
+            
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            
+            <label>Telepon:</label>
+            <input type="tel" name="telepon" required>
+            
+            <label>Hotel:</label>
+            <select name="hotel" required>
+                {% for hotel in daftar_kamar.keys() %}
+                    <option value="{{ hotel }}">{{ hotel }}</option>
+                {% endfor %}
+            </select>
+            
+            <label>Kamar ID:</label>
+            <select name="kamar_id" required>
+                {% for hotel, details in daftar_kamar.items() %}
+                    {% for room in details.kamar %}
+                        <option value="{{ room.id }}">{{ room.tipe }} - Rp {{ room.harga }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            
+            <label>Check In:</label>
+            <input type="date" name="check_in" required>
+            
+            <label>Check Out:</label>
+            <input type="date" name="check_out" required>
+            
+            <label>Jumlah Tamu:</label>
+            <input type="number" name="jumlah_tamu" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Hotel Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
