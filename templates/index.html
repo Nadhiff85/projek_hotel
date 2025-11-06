@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Hotel Management System</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Hotel Service</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+            <li><a href="{{ url_for('booking') }}">Book Now</a></li>
+            <li><a href="{{ url_for('checkin') }}">Check-In Results</a></li>
+        </ul>
+    </nav>
+    
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Management Hotel Palu</h1>
+            <p>Experience comfort and elegance at its finest</p>
+            <a href="{{ url_for('booking') }}" class="cta-button">Book Now</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Hotel Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
