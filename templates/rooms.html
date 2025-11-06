@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Kamar</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Hotel Service</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+            <li><a href="{{ url_for('booking') }}">Book Now</a></li>
+            <li><a href="{{ url_for('checkin') }}">Check-In Results</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Kamar Kami</h1>
+        <div class="feature-grid">
+            {% for hotel, details in daftar_kamar.items() %}
+            <div class="feature-card">
+                <h2>{{ hotel }}</h2>
+                <img src="{{ details.gambar }}" alt="{{ hotel }} Image" class="hotel-image">
+                <ul>
+                    {% for room in details.kamar %}
+                    <li>
+                        <strong>{{ room.tipe }} - Rp {{ room.harga }} ({{ room.status }})</strong>
+                        <h4>Fasilitas:</h4>
+                        <ul>
+                            {% for fasilitas in room.fasilitas %}
+                            <li>{{ fasilitas }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
